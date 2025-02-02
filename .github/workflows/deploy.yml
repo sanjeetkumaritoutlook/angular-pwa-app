@@ -40,8 +40,8 @@ jobs:
         run: npm run build -- --base-href=/angular-pwa-app/
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages
-          folder: dist/angular-pwa-app
-          clean: true  
+        uses: actions/deploy-pages@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/angular-pwa-app
+      
